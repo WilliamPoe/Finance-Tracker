@@ -1,5 +1,4 @@
 import './App.css'
-import MonthlyComparison from './components/MonthlyComparison'
 import Navbar from './components/Navbar'
 
 
@@ -10,7 +9,6 @@ function App() {
       <Navbar/>
       <h1> Finance Tracker </h1>
       <p>Help keep track of your finances</p>
-      <MonthlyComparison/>
     </div>
   );
 }
