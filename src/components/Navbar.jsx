@@ -4,8 +4,8 @@ import "../styles/Navbar.css";
 
 const Navbar = () => {
     return (
-        <nav classname="nav">
-            <Link to="/" classname="site-title"> Finance Tracker</Link>
+        <nav className="nav">
+            <Link to="/" className="site-title"> Finance Tracker</Link>
             <ul>
                 <li>
                     <Link to="/expenses">Expenses</Link>

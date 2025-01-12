@@ -1,13 +1,41 @@
-import React, {useEffect} from "react";
-import { Bar } from "react-chartjs-2";
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
+import React from "react";
+import { Radar } from "react-chartjs-2";
+import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(RadialLinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler);
 
 const ExpenseBreakdown = () => {
+    const labels = ['Food', 'Gas', 'Retail', 'Bills', 'Subscriptions', 'Transfers']
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Expenses',
+            data: [200, 350, 450, 2000, 100, 1500],
+            fill: true,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgb(255, 99, 132)',
+            pointBackgroundColor: 'rgb(255, 99, 132)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgb(255, 99, 132)',
+        }]
+    };
+
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {display: true},
+            title: {display: true, text: "Expense Breakdown"},
+        },
+    };
+
     return (
-        <div>ExpenseBreakdown</div>
+        <div style={{ width: "90%", maxWidth: "800px", height: "400px", margin: "auto" }}>
+            <h2>Expense Breakdown</h2>
+            <Radar data={data} options={options} />
+        </div>
     )
-}
+};
 
 export default ExpenseBreakdown
